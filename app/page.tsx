@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { CitySelector } from '@/app/_components/CitySelector';
 import { RecentSearches } from '@/app/_components/RecentSearches';
 
@@ -16,8 +17,10 @@ export default function HomePage() {
         {/* City search form (Client Component) */}
         <CitySelector />
 
-        {/* Recent searches (Client Component) */}
-        <RecentSearches />
+        {/* Recent searches (Client Component with useSearchParams) */}
+        <Suspense fallback={<div className="text-gray-500">Loading recent searches...</div>}>
+          <RecentSearches />
+        </Suspense>
       </div>
     </div>
   );
