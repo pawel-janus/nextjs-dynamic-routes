@@ -34,13 +34,13 @@ export type WeatherResponse = z.infer<typeof wttrApiResponseSchema>['current_con
  */
 export async function getWeather(city: string): Promise<WeatherResponse | null> {
   // Artificial delay to see loading.tsx (comment out for production)
-  await new Promise(resolve => setTimeout(resolve, 2000)); // 2s delay
+  // await new Promise(resolve => setTimeout(resolve, 2000)); // 2s delay
 
   // Simulate 500 error for testing (comment out for production)
   // Visit /weather/error500 to trigger this
-  if (city.toLowerCase() === 'error500') {
-    throw new Error('Weather API returned 500 - Server Error (simulated)');
-  }
+  // if (city.toLowerCase() === 'error500') {
+  //   throw new Error('Weather API returned 500 - Server Error (simulated)');
+  // }
 
   try {
     const res = await fetch(
