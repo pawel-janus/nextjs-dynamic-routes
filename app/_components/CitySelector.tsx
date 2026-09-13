@@ -33,10 +33,10 @@ export function CitySelector() {
         return;
       }
 
-      // Clear input and navigate to new city (updates URL searchParams)
+      // Clear input and navigate to new city (dynamic route)
       setCity('');
       startTransition(() => {
-        router.push(`/?city=${encodeURIComponent(trimmedCity)}`);
+        router.push(`/weather/${encodeURIComponent(trimmedCity.toLowerCase())}`);
       });
     } catch (err) {
       setError('Something went wrong');

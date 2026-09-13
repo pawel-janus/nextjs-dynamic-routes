@@ -45,8 +45,8 @@ export function RecentSearches() {
         body: JSON.stringify({ city: cityName }),
       });
 
-      // Navigate to show weather for clicked city (updates URL)
-      router.push(`/?city=${encodeURIComponent(cityName)}`);
+      // Navigate to show weather for clicked city (dynamic route)
+      router.push(`/weather/${encodeURIComponent(cityName.toLowerCase())}`);
     } catch (err) {
       console.error('Error selecting city:', err);
     }
